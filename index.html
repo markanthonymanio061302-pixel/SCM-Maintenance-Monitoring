@@ -695,7 +695,7 @@ seedMechsIfEmpty();
         <div class="fg-f"><span class="flbl-f">Business Unit</span>
           <select class="finp" id="bs-bu" style="width:130px;" onchange="renderBill()">
             <option value="">All</option>
-            <option>Logistics</option><option>Green Waste</option><option>Green Building</option>
+            <option>Logistics</option><option>Green Waste</option><option>Green Building</option><option>RMP</option>
           </select>
         </div>
         <div class="fg-f"><span class="flbl-f">SOA No.</span><input class="finp" id="bs-soano" placeholder="W-00071" style="width:110px;"></div>
@@ -788,7 +788,7 @@ seedMechsIfEmpty();
         <input class="finp" id="dash-to" placeholder="To MM/DD/YYYY" style="width:150px;" oninput="renderDash()">
         <select class="finp" id="dash-bu" style="width:130px;" onchange="renderDash()">
           <option value="">All BUs</option>
-          <option>Logistics</option><option>Green Waste</option><option>Green Building</option>
+          <option>Logistics</option><option>Green Waste</option><option>Green Building</option><option>RMP</option>
         </select>
         <span style="font-size:11px;color:var(--gray-400);" id="dash-period-lbl"></span>
       </div>
@@ -1382,7 +1382,7 @@ seedMechsIfEmpty();
         <div class="fgrp"><label class="flbl">JO Number</label><input class="finp" id="jo-num" placeholder="e.g. 27608"></div>
         <div class="fgrp"><label class="flbl">Business Unit</label>
           <select class="finp" id="jo-bu">
-            <option>Logistics</option><option>Green Waste</option><option>Green Building</option>
+           <option>Logistics</option><option>Green Waste</option><option>Green Building</option><option>RMP</option>
           </select>
         </div>
         <div class="fgrp"><label class="flbl">Requisitioner</label><input class="finp" id="jo-req" placeholder="e.g. J. Climaco"></div>
@@ -2193,7 +2193,7 @@ window.renderDash = function() {
   var topME=Object.entries(mechHrsKpi).sort(function(a,b){return b[1]-a[1];})[0];
   document.getElementById('dk-top-mech').textContent=topME?topME[0]:'—';
   document.getElementById('dk-top-mech-sub').textContent=topME?topME[1].toFixed(2)+' hrs':'0 hrs';
-  var bus=['Logistics','Green Waste','Green Building'],buC=['#6B1A2A','#1B6B3A','#1A3A6B'],buT={};
+  var bus=['Logistics','Green Waste','Green Building','RMP'],buC=['#6B1A2A','#1B6B3A','#1A3A6B'],buT={};
   bus.forEach(function(b){buT[b]=0;});
   list.forEach(function(j){if(buT[j.bu]!==undefined)buT[j.bu]+=j.laborCost;});
   var maxBU=Math.max.apply(null,bus.map(function(b){return buT[b];}))||1;
